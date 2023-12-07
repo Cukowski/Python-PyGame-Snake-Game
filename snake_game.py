@@ -2,6 +2,7 @@ import pygame
 import random
 
 pygame.init()
+pygame.mixer.init() 
 
 # for the display size 600 * 400, the best block size is 10 or 20
 dis_width = 600
@@ -23,6 +24,9 @@ color_geal = (41, 173, 178)  # body of snake
 
 dis.fill(color_earth)  # display color
 game_over = False
+
+# turning sound effect
+sound_turn = pygame.mixer.Sound('turn-little-object.wav')
 
 # positions for the snake head
 x = 300
@@ -123,15 +127,19 @@ def game_loop(speed):
                 if event.key == pygame.K_UP:
                     x_change = 0
                     y_change = -snake_block
+                    pygame.mixer.Sound.play(sound_turn)
                 elif event.key == pygame.K_DOWN:
                     x_change = 0
                     y_change = snake_block
+                    pygame.mixer.Sound.play(sound_turn)
                 elif event.key == pygame.K_RIGHT:
                     x_change = snake_block
                     y_change = 0
+                    pygame.mixer.Sound.play(sound_turn)
                 elif event.key == pygame.K_LEFT:
                     x_change = -snake_block
                     y_change = 0
+                    pygame.mixer.Sound.play(sound_turn)
                 if event.key == pygame.K_s and (snake_speed > 5):
                     snake_speed -= 5
                 if event.key == pygame.K_f:
