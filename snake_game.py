@@ -113,7 +113,7 @@ def game_loop(speed):
                         game_over = True
                         game_close = False
                     if event.key == pygame.K_p:  # if p clicked - play
-                        game_loop(10)
+                        game_loop(snake_speed)
 
         for event in pygame.event.get():
             if event.type == pygame.QUIT:  # to check if the close button is clicked
